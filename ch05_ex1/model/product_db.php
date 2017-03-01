@@ -11,6 +11,21 @@ function get_products_by_category($category_id) {
     $statement->closeCursor();
     return $products;
 }
+function add_category($name){
+    global $db
+    $query = 'INSERT INTO categories
+                (categoryName)
+              VALUES
+	        (:name);';
+    $db->exec($query);
+}
+
+function delete_category($category_id) {
+    global $db
+    $query = 'DELETE FROM categories
+              WHERE categoryID = :category_id';
+    $db->exec($query);
+}
 
 function get_product($product_id) {
     global $db;

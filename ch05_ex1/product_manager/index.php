@@ -21,6 +21,21 @@ if ($action == 'list_products') {
     $categories = get_categories();
     $products = get_products_by_category($category_id);
     include('product_list.php');
+
+} else if ($action == 'list_categories') {
+    $categories = get_categories();
+    include('category_list.php')
+
+} else if ($action == 'add_category') {
+    $category_name = $_POST['name'];
+    add_category($category_name);
+    header("Location: .?action=list_categories");
+
+} else if ($action == 'delete_category') {
+    $category_id = $POST['category_id'];
+    delete_category($category_id);
+    header("Location: .?action=list_categories");
+
 } else if ($action == 'delete_product') {
     $product_id = filter_input(INPUT_POST, 'product_id', 
             FILTER_VALIDATE_INT);

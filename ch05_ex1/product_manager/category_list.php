@@ -11,7 +11,13 @@
     </table>
 
     <h2>Add Category</h2>
-    <!-- add code for form here -->
+      <form action="index.php" method="post">
+        <input type="hidden" name="action" value="add_category" />
+
+	<label>Name:</label>
+	<input type="input" name="name" />
+	<input id="add_category_button" type="submit" value="Add" />
+      </form>
 
     <p><a href="index.php?action=list_products">List Products</a></p>
 
